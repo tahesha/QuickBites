@@ -6,7 +6,7 @@ import RecipeList from './components/RecipeList';
 function App() {
   const [ingredients, setIngredients] = useState('');
   const dispatch = useDispatch();
-  const recipes = useSelector((state) => state.recipes.recipes);
+  const recipes = useSelector((state) => state.recipes.recipes || []);
   const status = useSelector((state) => state.recipes.status);
   const error = useSelector((state) => state.recipes.error);
 

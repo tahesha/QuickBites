@@ -1,6 +1,11 @@
 import React from 'react';
 
 const RecipeList = ({ recipes }) => {
+  // Ensure recipes is an array before calling map
+  if (!recipes || recipes.length === 0) {
+    return <div>No recipes found</div>;
+  }
+
   return (
     <div>
       {recipes.map((recipe) => (
