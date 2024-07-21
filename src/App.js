@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipes } from './redux/recipesSlice';
+import { fetchRecipesByIngredients } from './redux/recipesSlice';
 import RecipeList from './components/RecipeList';
+import SearchByName from './components/SearchByName';
+import RandomRecipe from './components/RandomRecipe';
+import './App.css';
 
 function App() {
   const [ingredients, setIngredients] = useState('');
@@ -11,22 +14,26 @@ function App() {
   const error = useSelector((state) => state.recipes.error);
 
   const handleSearch = () => {
-    dispatch(fetchRecipes(ingredients));
+    dispatch(fetchRecipesByIngredients({ ingredients }));
   };
 
   return (
     <div className="App">
       <h1>Recipe Finder</h1>
-      <input
-        type="text"
-        value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
-        placeholder="Enter ingredients"
-      />
-      <button onClick={handleSearch}>Search</button>
+      <div className="search-container">
+        <input
+          type="text"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+          placeholder="Enter ingredients (e.g., rice, squash, eggs)"
+        />
+        <button onClick={handleSearch}>Search by Ingredients</button>
+      </div>
+      <SearchByName />
       {status === 'loading' && <p>Loading...</p>}
       {status === 'failed' && <p>{error}</p>}
       <RecipeList recipes={recipes} />
+      <RandomRecipe />
     </div>
   );
 }
