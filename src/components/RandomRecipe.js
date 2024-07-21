@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchRandomRecipe } from '../redux/recipesSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchRandomRecipe } from '../redux/recipesSlice'; // Ensure correct import path
 
 const RandomRecipe = () => {
   const dispatch = useDispatch();
@@ -12,11 +12,17 @@ const RandomRecipe = () => {
     dispatch(fetchRandomRecipe());
   };
 
+  if (randomStatus === 'loading') {
+    return <p>Loading random recipe...</p>;
+  }
+
+  if (randomStatus === 'failed') {
+    return <p>Error: {randomError}</p>;
+  }
+
   return (
-    <div className="random-recipe-container">
+    <div>
       <button onClick={handleFetchRandomRecipe}>Get Random Recipe</button>
-      {randomStatus === 'loading' && <p>Loading...</p>}
-      {randomStatus === 'failed' && <p>{randomError}</p>}
       {randomRecipe && (
         <div>
           <h2>{randomRecipe.strMeal}</h2>
@@ -29,4 +35,6 @@ const RandomRecipe = () => {
 };
 
 export default RandomRecipe;
+
+
 

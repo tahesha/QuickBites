@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRecipesByIngredients } from './redux/recipesSlice';
-import RecipeList from './components/RecipeList';
-import SearchByName from './components/SearchByName';
-import RandomRecipe from './components/RandomRecipe';
+import { fetchRecipesByIngredients, fetchRecipesByName, fetchRandomRecipe } from './redux/recipesSlice'; // Ensure correct import paths
+import RecipeList from './components/RecipeList'; // Ensure correct import paths
+import SearchByName from './components/SearchByName'; // Ensure correct import paths
+import RandomRecipe from './components/RandomRecipe'; // Ensure correct import paths
 import './App.css';
 
 function App() {
@@ -29,11 +29,15 @@ function App() {
         />
         <button onClick={handleSearch}>Search by Ingredients</button>
       </div>
-      <SearchByName />
+      <div className="search-by-name-container">
+        <SearchByName />
+      </div>
+      <div className="random-recipe-container">
+        <RandomRecipe />
+      </div>
       {status === 'loading' && <p>Loading...</p>}
       {status === 'failed' && <p>{error}</p>}
       <RecipeList recipes={recipes} />
-      <RandomRecipe />
     </div>
   );
 }
