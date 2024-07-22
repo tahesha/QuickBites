@@ -21,7 +21,7 @@ const SearchByName = () => {
         onChange={(e) => setName(e.target.value)}
         placeholder="Search by name"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch}>Search by Name</button>
       {status === 'loading' && <div>Loading...</div>}
       {status === 'failed' && <div>Error: {error}</div>}
       {recipes && recipes.map((recipe) => (
