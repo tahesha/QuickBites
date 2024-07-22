@@ -2,7 +2,7 @@ import React from 'react';
 
 const RecipeList = ({ recipes }) => {
   if (!recipes || recipes.length === 0) {
-    return <div>Search for a recipe</div>;
+    return <div>Embark on a culinary journey with Culinary Adventures and discover the joy of cooking without boundaries!</div>;
   }
 
   return (
