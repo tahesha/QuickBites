@@ -21,17 +21,20 @@ function App() {
     <div className="App">
       <h1>Recipe Finder</h1>
       <div className="search-container">
+        <p>Option 1: Enter a main ingredient to see pictures of meals you can prepare. Use the photo as your inspiration. Get out of your comfort zone and try to recreate the recipe just by using the photo.</p>
         <input
           type="text"
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
-          placeholder="Enter ingredients (e.g., rice, squash, eggs)"
+          placeholder="Enter a main ingredient (e.g., rice, squash, eggs)"
         />
-        <button onClick={handleSearch}>Search by Ingredients</button>
+        <button onClick={handleSearch}>Search by Ingredient</button>
       </div>
+      <p>Option 2: You can also search by name, to see pictures of meals you can recreate. Use your imagination to come up with something tasty.</p>
       <div className="search-by-name-container">
         <SearchByName />
       </div>
+      <p>Option 3: Click the Random Recipe Generator button and re-create the image, using the recipe.</p>
       <div className="random-recipe-container">
         <RandomRecipe />
       </div>
