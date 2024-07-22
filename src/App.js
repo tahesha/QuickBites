@@ -20,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <h1>Recipe Finder</h1>
+      <p>Culinary Adventures is an innovative recipe app designed to challenge users to step out of their culinary comfort zones. The app offers three exciting ways to explore new dishes:</p>
       <div className="search-container">
         <p>Option 1: Enter a main ingredient to see pictures of meals you can prepare. Use the photo as your inspiration. Get out of your comfort zone and try to recreate the recipe just by using the photo.</p>
         <input
